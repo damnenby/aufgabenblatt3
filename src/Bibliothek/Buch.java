@@ -92,7 +92,7 @@ public class Buch extends Medium{
     }
 
     /** to be updated */
-    public void ausgeleihen(){
+    public void ausleihen(){
         this.ausgeliehen = true;
     }
 
