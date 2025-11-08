@@ -177,7 +177,10 @@ public class Buch extends Medium{
         sb.append("Erscheinungsjahr: ").append(erscheinungsjahr).append("\n");
         sb.append("Verlag: ").append(verlag).append("\n");
         sb.append("ISBN: ").append(isbn).append("\n");
-        sb.append("Verfasser: ").append(verfasser);
+        sb.append("Verfasser: ").append(verfasser).append("\n");
+        sb.append("Auflage: ").append(auflage).append("\n");
+        sb.append("Seiten: ").append(seitenanzahl).append("\n");
+        sb.append("Ausgeliehen: ").append(ausgeliehen).append("\n");
         return sb.toString();
     }
 

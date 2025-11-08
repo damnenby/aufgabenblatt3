@@ -99,7 +99,10 @@ public class CD extends Medium{
         StringBuilder sb = new StringBuilder();
         sb.append("Titel: ").append(Titel).append("\n");
         sb.append("Label: ").append(label).append("\n");
-        sb.append("Künstler: ").append(kuenstler);
+        sb.append("Künstler: ").append(kuenstler).append("\n");;
+        sb.append("Gesamtdauer: ").append(gesamtdauer).append("\n");
+        sb.append("Altersfreigabe: ").append(altersfreigabe).append("\n");
+        sb.append("Ausgeliehen: ").append(ausgeliehen).append("\n");
         return sb.toString();
     }
 

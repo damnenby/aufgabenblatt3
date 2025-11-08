@@ -111,7 +111,10 @@ public class Zeitschrift extends Medium{
         sb.append("Titel: ").append(Titel).append("\n");
         sb.append("ISSN: ").append(issn).append("\n");
         sb.append("Volume: ").append(volume).append("\n");
-        sb.append("Nummer: ").append(nummer);
+        sb.append("Nummer: ").append(nummer).append("\n");;
+        sb.append("Auflage: ").append(auflage).append("\n");
+        sb.append("Seiten: ").append(seitenanzahl).append("\n");
+        sb.append("Ausgeliehen: ").append(ausgeliehen).append("\n");
         return sb.toString();
     }
 }

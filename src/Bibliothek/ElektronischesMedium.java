@@ -107,7 +107,10 @@ public class ElektronischesMedium extends Medium{
     public String calculateRepresentation() {
         StringBuilder sb = new StringBuilder();
         sb.append("Titel: ").append(Titel).append("\n");
-        sb.append("URL: ").append(URL);
+        sb.append("URL: ").append(URL).append("\n");;
+        sb.append("Dateiformat: ").append(dateiformat).append("\n");
+        sb.append("Groesse (byte): ").append(groesse).append("\n");
+        sb.append("Ausgeliehen: ").append(ausgeliehen).append("\n");
         return sb.toString();
     }
 }
