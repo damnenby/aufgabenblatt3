@@ -1,3 +1,7 @@
+package Bibliothek;
+
+import java.util.ArrayList;
+
 /**
  * Erstellt verschiedene {@link Medium}-Objekte (Buch, CD, Zeitschrift, ElektronischesMedium),
  * speichert sie in einem Array und gibt deren textuelle Repräsentationen aus, testet {@link #parseBibTex(String)}.
@@ -5,7 +9,6 @@
  * @since 2025-10-19
  * <p>Umgebung: IntelliJ IDEA, JDK 25, Windows 10</p>
  */
-package Bibliothek;
 public class Bibliothek {
     /**
      * Hauptmethode: erzeugt mehrere Medienobjekte, speichert sie in einem Array
@@ -13,7 +16,8 @@ public class Bibliothek {
      * @param args wird nicht verwendet
      */
     public static void main(String[] args) {
-        Medium[] arr = new Medium[4];
+
+        ArrayList<Medium> list = new ArrayList<>();
 
         Buch b = new Buch();
         b.setTitel("Duden 01. Die deutsche Rechtschreibung");
@@ -37,12 +41,12 @@ public class Bibliothek {
         em.setTitel("Hochschule Stralsund");
         em.setURL("http://www.hochschule-stralsund.de");
 
-        arr[0] = b;
-        arr[1] = cd;
-        arr[2] = z;
-        arr[3] = em;
+        list.add(b);
+        list.add(cd);
+        list.add(z);
+        list.add(em);
 
-        for (Medium m : arr) {
+        for (Medium m : list) {
             System.out.println(m);
             System.out.println();
         }
