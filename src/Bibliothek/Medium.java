@@ -1,10 +1,11 @@
+package Bibliothek;
+
 /**
  * Basisklasse mit Titel.
  * @author Valentyn Zhernovoi
  * @since 2025-10-19
  * <p>Umgebung: IntelliJ IDEA, JDK 25, Windows 10</p>
  */
-package Bibliothek;
 public abstract class Medium {
     /** Titel des Mediums. */
     protected String Titel;

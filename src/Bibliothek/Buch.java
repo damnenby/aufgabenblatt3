@@ -1,3 +1,5 @@
+package Bibliothek;
+
 /**
  * Buch mit Erscheinungsjahr, Verlag, ISBN und Verfasser.
  * Erbt den Titel aus {@link Medium} und prüft die ISBN im Setter.
@@ -5,62 +7,116 @@
  * @since 2025-10-19
  * <p>Umgebung: IntelliJ IDEA, JDK 25, Windows 10</p>
  */
-package Bibliothek;
 public class Buch extends Medium{
     /** Erscheinungsjahr des Buches. */
-    private int Erscheinungsjahr;
+    private int erscheinungsjahr;
 
     /** Verlag des Buches. */
-    private String Verlag;
+    private String verlag;
 
     /** ISBN des Buches */
-    private String ISBN;
+    private String isbn;
 
     /** Verfasser/Autor des Buches. */
-    private String Verfasser;
+    private String verfasser;
+
+    /** to be updated */
+    private int auflage;
+
+    /** to be updated */
+    private int seitenanzahl;
+
+    /** to be updated */
+    private boolean ausgeliehen;
+
 
     /** Gibt das Erscheinngsjahr zurück.
      * @return Erscheinngsjahr */
     public int getErscheinungsjahr() {
-        return this.Erscheinungsjahr;
+        return this.erscheinungsjahr;
     }
 
     /** Setzt das Erscheinungsjahr.
      * @param Erscheinungsjahr Erscheinungsjahr */
     public void setErscheinungsjahr(int Erscheinungsjahr) {
-        this.Erscheinungsjahr = Erscheinungsjahr;
+        this.erscheinungsjahr = Erscheinungsjahr;
     }
 
     /** Gibt den Verlag zurück.
      * @return Verlag */
     public String getVerlag() {
-        return this.Verlag;
+        return this.verlag;
     }
 
 
     /** Setzt den Verlag.
      * @param Verlag Verlag */
     public void setVerlag(String Verlag) {
-        this.Verlag = Verlag;
+        this.verlag = Verlag;
     }
 
     /** Gibt die ISBN zurück.
      * @return ISBN */
-    public String getISBN() {
-        return this.ISBN;
+    public String getIsbn() {
+        return this.isbn;
+    }
+
+    /** to be updated */
+    public int getAuflage() {
+        return this.auflage;
+    }
+
+    /** to be updated */
+    public void setAuflage(int auflage) {
+        this.auflage = auflage;
+    }
+
+    /** to be updated */
+    public int getSeitenanzahl() {
+        return this.seitenanzahl;
+    }
+
+    /** to be updated */
+    public void setSeitenanzahl(int seitenanzahl) {
+        this.seitenanzahl = seitenanzahl;
+    }
+
+    /** to be updated */
+    public boolean isAusgeliehen() {
+        return this.ausgeliehen;
+    }
+
+    /** to be updated */
+    public void setAusgeliehen(boolean ausgeliehen) {
+        this.ausgeliehen = ausgeliehen;
+    }
+
+    /** to be updated */
+    public void ausgeleihen(){
+        this.ausgeliehen = true;
+    }
+
+    /** to be updated */
+    public void rueckgabe(){
+        this.ausgeliehen = false;
+    }
+
+    /** to be updated */
+    public void verlaengern(){
+        /* to be updated */
     }
 
     /** Setzt die ISBN nach Prüfung.
      * Entfernt Nichtziffern.
-     * @param ISBN Eingabe */
-    public void setISBN(String ISBN) {
-        if (ISBN == null) {
+     * @param isbn Eingabe */
+    public void setIsbn(String isbn) {
+        if (isbn == null) {
             System.out.println("Invalid ISBN: null");
             return;
         }
 
 
-        String onlyNumbers = ISBN.replaceAll("\\D", "");
+        String onlyNumbers = isbn.replaceAll("\\D", "");
         if (onlyNumbers.isEmpty()) {
             System.out.println("Invalid ISBN: empty");
             return;
@@ -79,11 +135,11 @@ public class Buch extends Medium{
         }
 
         if (valid) {
-            this.ISBN = ISBN;
+            this.isbn = isbn;
         }
 
         else {
-            System.out.println("Invalid ISBN: " + ISBN);
+            System.out.println("Invalid ISBN: " + isbn);
         }
 
     }
@@ -91,13 +147,13 @@ public class Buch extends Medium{
     /** Gibt den Verfasser zurück.
      * @return Verfasser */
     public String getVerfasser() {
-        return this.Verfasser;
+        return this.verfasser;
     }
 
     /** Setzt den Verfasser.
      * @param Verfasser Verfasser */
     public void setVerfasser(String Verfasser) {
-        this.Verfasser = Verfasser;
+        this.verfasser = Verfasser;
     }
 
     /** String → int[].
@@ -118,10 +174,10 @@ public class Buch extends Medium{
     public String calculateRepresentation() {
         StringBuilder sb = new StringBuilder();
         sb.append("Titel: ").append(Titel).append("\n");
-        sb.append("Erscheinungsjahr: ").append(Erscheinungsjahr).append("\n");
-        sb.append("Verlag: ").append(Verlag).append("\n");
-        sb.append("ISBN: ").append(ISBN).append("\n");
-        sb.append("Verfasser: ").append(Verfasser);
+        sb.append("Erscheinungsjahr: ").append(erscheinungsjahr).append("\n");
+        sb.append("Verlag: ").append(verlag).append("\n");
+        sb.append("ISBN: ").append(isbn).append("\n");
+        sb.append("Verfasser: ").append(verfasser);
         return sb.toString();
     }
 

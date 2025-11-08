@@ -1,40 +1,95 @@
+package Bibliothek;
+
 /**
  * CD mit Label und Künstler.
  * @author Valentyn Zhernovoi
  * @since 2025-10-19
  * <p>Umgebung: IntelliJ IDEA, JDK 25, Windows 10</p>
  */
-package Bibliothek;
 public class CD extends Medium{
 
     /** Label der CD. */
-    private String Label;
+    private String label;
 
     /** Künstlername. */
-    private String Kuenstler;
+    private String kuenstler;
+
+    /** to be updated */
+    private int gesamtdauer;
+
+    /** to be updated */
+    private String altersfreigabe;
+
+    /** to be updated */
+    private boolean ausgeliehen;
 
     /** Gibt den Künstler zurück.
      * @return Künstler */
     public String getKuenstler() {
-        return this.Kuenstler;
+        return this.kuenstler;
     }
 
     /** Setzt den Küsntler.
      * @param kuenstler Künstler */
     public void setKuenstler(String kuenstler) {
-        this.Kuenstler = kuenstler;
+        this.kuenstler = kuenstler;
     }
 
     /** Gibt das Label zurück.
      * @return Label */
     public String getLabel() {
-        return this.Label;
+        return this.label;
     }
 
     /** Setzt das Label.
      * @param label Label */
     public void setLabel(String label) {
-        this.Label = label;
+        this.label = label;
+    }
+
+    /** to be updated */
+    public String getAltersfreigabe() {
+        return this.altersfreigabe;
+    }
+
+    /** to be updated */
+    public void setAltersfreigabe(String altersfreigabe) {
+        this.altersfreigabe = altersfreigabe;
+    }
+
+    /** to be updated */
+    public boolean isAusgeliehen() {
+        return this.ausgeliehen;
+    }
+
+    /** to be updated */
+    public void setAusgeliehen(boolean ausgeliehen) {
+        this.ausgeliehen = ausgeliehen;
+    }
+
+    /** to be updated */
+    public int getGesamtdauer() {
+        return this.gesamtdauer;
+    }
+
+    /** to be updated */
+    public void setGesamtdauer(int gesamtdauer) {
+        this.gesamtdauer = gesamtdauer;
+    }
+
+    /** to be updated */
+    public void ausleihen(){
+        this.ausgeliehen = true;
+    }
+
+    /** to be updated */
+    public void rueckgabe(){
+        this.ausgeliehen = false;
+    }
+
+    /** to be updated */
+    public void verlaengern(){
+        /* to be updated */
     }
 
     /** Liefert die Darstellung (Titel, Label, Künstler).
@@ -43,8 +98,8 @@ public class CD extends Medium{
     public String calculateRepresentation() {
         StringBuilder sb = new StringBuilder();
         sb.append("Titel: ").append(Titel).append("\n");
-        sb.append("Label: ").append(Label).append("\n");
-        sb.append("Künstler: ").append(Kuenstler);
+        sb.append("Label: ").append(label).append("\n");
+        sb.append("Künstler: ").append(kuenstler);
         return sb.toString();
     }
 

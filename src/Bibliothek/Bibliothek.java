@@ -23,7 +23,7 @@ public class Bibliothek {
         b.setTitel("Duden 01. Die deutsche Rechtschreibung");
         b.setErscheinungsjahr(2004);
         b.setVerlag("Bibliographisches Institut, Mannheim");
-        b.setISBN("3-411-04013-0");
+        b.setIsbn("3-411-04013-0");
         b.setVerfasser("-");
 
         CD cd = new CD();
@@ -33,7 +33,7 @@ public class Bibliothek {
 
         Zeitschrift z = new Zeitschrift();
         z.setTitel("Der Spiegel");
-        z.setISSN("ISSN 0038-7452");
+        z.setIssn("ISSN 0038-7452");
         z.setVolume(54);
         z.setNummer(6);
 
@@ -128,7 +128,7 @@ public class Bibliothek {
             buch.setVerfasser(author);
             buch.setVerlag(publisher);
             buch.setErscheinungsjahr(year);
-            buch.setISBN(isbn);
+            buch.setIsbn(isbn);
             return buch;
         } else if (typeNameLower.equals("journal")) {
             String title = getField(bodyText, "title");
@@ -147,7 +147,7 @@ public class Bibliothek {
 
             Zeitschrift zeitschrift = new Zeitschrift();
             zeitschrift.setTitel(title);
-            zeitschrift.setISSN(issn);
+            zeitschrift.setIssn(issn);
             zeitschrift.setVolume(volume);
             zeitschrift.setNummer(number);
             return zeitschrift;
