@@ -39,6 +39,7 @@ public class Buch extends Medium{
     /** Setzt das Erscheinungsjahr.
      * @param Erscheinungsjahr Erscheinungsjahr */
     public void setErscheinungsjahr(int Erscheinungsjahr) {
+        if (Erscheinungsjahr <= 0) throw new IllegalArgumentException("Jahr ungültig: " + Erscheinungsjahr);
         this.erscheinungsjahr = Erscheinungsjahr;
     }
 
@@ -52,6 +53,7 @@ public class Buch extends Medium{
     /** Setzt den Verlag.
      * @param Verlag Verlag */
     public void setVerlag(String Verlag) {
+        if (Verlag == null || Verlag.trim().isEmpty()) throw new IllegalArgumentException("Verlag leer");
         this.verlag = Verlag;
     }
 
@@ -68,6 +70,7 @@ public class Buch extends Medium{
 
     /** to be updated */
     public void setAuflage(int auflage) {
+        if (auflage <= 0) throw new IllegalArgumentException("Auflage <= 0");
         this.auflage = auflage;
     }
 
@@ -78,6 +81,7 @@ public class Buch extends Medium{
 
     /** to be updated */
     public void setSeitenanzahl(int seitenanzahl) {
+        if (seitenanzahl <= 0) throw new IllegalArgumentException("Seitenanzahl <= 0");
         this.seitenanzahl = seitenanzahl;
     }
 
@@ -111,19 +115,15 @@ public class Buch extends Medium{
      * @param isbn Eingabe */
     public void setIsbn(String isbn) {
         if (isbn == null) {
-            System.out.println("Invalid ISBN: null");
-            return;
+            throw new IllegalArgumentException("ISBN null");
         }
-
 
         String onlyNumbers = isbn.replaceAll("\\D", "");
         if (onlyNumbers.isEmpty()) {
-            System.out.println("Invalid ISBN: empty");
-            return;
+            throw new IllegalArgumentException("ISBN leer");
         }
 
         int[] a = toDigits(onlyNumbers);
-
 
         boolean valid = false;
 
@@ -139,7 +139,7 @@ public class Buch extends Medium{
         }
 
         else {
-            System.out.println("Invalid ISBN: " + isbn);
+            throw new IllegalArgumentException("ISBN ungültig: " + isbn);
         }
 
     }
@@ -153,6 +153,7 @@ public class Buch extends Medium{
     /** Setzt den Verfasser.
      * @param Verfasser Verfasser */
     public void setVerfasser(String Verfasser) {
+        if (Verfasser == null || Verfasser.trim().isEmpty()) throw new IllegalArgumentException("Verfasser leer");
         this.verfasser = Verfasser;
     }
 
@@ -187,8 +188,8 @@ public class Buch extends Medium{
 
     // ---------------------------------------------------
 
-/** Prüft ISBN10
- * @return valid */
+    /** Prüft ISBN10
+     * @return valid */
     public static boolean checkISBN10(int[] isbn) {
         int sum = 0;
         for (int i = 1; i <= isbn.length; i++) {

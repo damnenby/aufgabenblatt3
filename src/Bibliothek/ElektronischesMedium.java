@@ -34,7 +34,7 @@ public class ElektronischesMedium extends Medium{
             this.URL = URL;
             }
         else {
-            System.out.println("Invalid URL: " + URL);
+            throw new IllegalArgumentException("URL ungültig: " + URL);
         }
     }
 
@@ -61,6 +61,7 @@ public class ElektronischesMedium extends Medium{
 
     /** to be updated */
     public void setDateiformat(String dateiformat) {
+        if (dateiformat == null || dateiformat.isEmpty()) throw new IllegalArgumentException("Dateiformat leer");
         this.dateiformat = dateiformat;
     }
 
@@ -71,6 +72,7 @@ public class ElektronischesMedium extends Medium{
 
     /** to be updated */
     public void setGroesse(long groesse) {
+        if (groesse <= 0) throw new IllegalArgumentException("Groesse <= 0");
         this.groesse = groesse;
     }
 
@@ -107,7 +109,7 @@ public class ElektronischesMedium extends Medium{
     public String calculateRepresentation() {
         StringBuilder sb = new StringBuilder();
         sb.append("Titel: ").append(Titel).append("\n");
-        sb.append("URL: ").append(URL).append("\n");;
+        sb.append("URL: ").append(URL).append("\n");
         sb.append("Dateiformat: ").append(dateiformat).append("\n");
         sb.append("Groesse (byte): ").append(groesse).append("\n");
         sb.append("Ausgeliehen: ").append(ausgeliehen).append("\n");

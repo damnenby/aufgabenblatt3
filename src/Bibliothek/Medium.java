@@ -19,6 +19,7 @@ public abstract class Medium {
     /** Setzt den Titel.
      * @param Titel Titel */
     public void setTitel(String Titel) {
+        if (Titel == null || Titel.trim().isEmpty()) throw new IllegalArgumentException("Titel leer");
         this.Titel = Titel;
     }
 

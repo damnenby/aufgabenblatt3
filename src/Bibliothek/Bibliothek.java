@@ -51,32 +51,6 @@ public class Bibliothek {
             System.out.println();
         }
 
-        System.out.println("\n----------------------------------------------------------\n\n");
-
-        String[] test = {
-                "@book{author = {-}, title = {Duden 01. Die deutsche Rechtschreibung}, publisher = {Bibliographisches Institut, Mannheim}, year={2004}, isbn={3-411-04013-0}}",
-                "@journal{title={Der Spiegel}, issn={0038-7452}, volume={54}, number={6}}",
-                "@cd{title={1}, artist={The Beatles}, label={Apple (Bea (EMI))}}",
-                "@elMed{title={Hochschule Stralsund}, url={http://www.hochschule-stralsund.de}}",
-                "@book{title={X}, publisher={Y}, year={2000}, isbn={1234567890}",
-                "@magazine{title={X}, issn={1234-5678}, volume={1}, number={1}}",
-        };
-
-
-
-        for (String s : test) {
-            try {
-                Medium m = Bibliothek.parseBibTex(s);
-                System.out.println("SUCCESS: " + s);
-                System.out.println(m);
-                System.out.println("\n");
-            } catch (Exception e) {
-                System.out.println("FAIL: " + s);
-                System.out.println(e);
-                System.out.println("\n");
-            }
-        }
-
 
     }
 

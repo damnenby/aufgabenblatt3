@@ -30,6 +30,7 @@ public class Zeitschrift extends Medium{
 
     /** to be updated */
     public void setAuflage(int auflage) {
+        if (auflage <= 0) throw new IllegalArgumentException("Auflage <= 0");
         this.auflage = auflage;
     }
 
@@ -49,6 +50,7 @@ public class Zeitschrift extends Medium{
 
     /** to be updated */
     public void setSeitenanzahl(int seitenanzahl) {
+        if (seitenanzahl <= 0) throw new IllegalArgumentException("Seitenanzahl <= 0");
         this.seitenanzahl = seitenanzahl;
     }
 
@@ -76,6 +78,7 @@ public class Zeitschrift extends Medium{
     /** Setzt die ISSN.
      * @param issn ISSN */
     public void setIssn(String issn) {
+        if (issn == null || issn.trim().isEmpty()) throw new IllegalArgumentException("ISSN leer");
         this.issn = issn;
     }
 
@@ -88,6 +91,7 @@ public class Zeitschrift extends Medium{
     /** Setzt das Volume.
      * @param Volume Volume */
     public void setVolume(int Volume) {
+        if (Volume <= 0) throw new IllegalArgumentException("Volume <= 0");
         this.volume = Volume;
     }
 
@@ -100,6 +104,7 @@ public class Zeitschrift extends Medium{
     /** Setzt die Nummer.
      * @param Nummer Nummer */
     public void setNummer(int Nummer) {
+        if (Nummer <= 0) throw new IllegalArgumentException("Nummer <= 0");
         this.nummer = Nummer;
     }
 
@@ -111,7 +116,7 @@ public class Zeitschrift extends Medium{
         sb.append("Titel: ").append(Titel).append("\n");
         sb.append("ISSN: ").append(issn).append("\n");
         sb.append("Volume: ").append(volume).append("\n");
-        sb.append("Nummer: ").append(nummer).append("\n");;
+        sb.append("Nummer: ").append(nummer).append("\n");
         sb.append("Auflage: ").append(auflage).append("\n");
         sb.append("Seiten: ").append(seitenanzahl).append("\n");
         sb.append("Ausgeliehen: ").append(ausgeliehen).append("\n");

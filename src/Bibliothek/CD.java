@@ -32,6 +32,7 @@ public class CD extends Medium{
     /** Setzt den Küsntler.
      * @param kuenstler Künstler */
     public void setKuenstler(String kuenstler) {
+        if (kuenstler == null || kuenstler.isEmpty()) throw new IllegalArgumentException("Kuenstler leer");
         this.kuenstler = kuenstler;
     }
 
@@ -44,6 +45,7 @@ public class CD extends Medium{
     /** Setzt das Label.
      * @param label Label */
     public void setLabel(String label) {
+        if (label == null || label.isEmpty()) throw new IllegalArgumentException("Label leer");
         this.label = label;
     }
 
@@ -54,6 +56,7 @@ public class CD extends Medium{
 
     /** to be updated */
     public void setAltersfreigabe(String altersfreigabe) {
+        if (altersfreigabe == null || altersfreigabe.isEmpty()) throw new IllegalArgumentException("Altersfreigabe leer");
         this.altersfreigabe = altersfreigabe;
     }
 
@@ -74,6 +77,7 @@ public class CD extends Medium{
 
     /** to be updated */
     public void setGesamtdauer(int gesamtdauer) {
+        if (gesamtdauer <= 0) throw new IllegalArgumentException("Gesamtdauer <= 0");
         this.gesamtdauer = gesamtdauer;
     }
 
@@ -99,7 +103,7 @@ public class CD extends Medium{
         StringBuilder sb = new StringBuilder();
         sb.append("Titel: ").append(Titel).append("\n");
         sb.append("Label: ").append(label).append("\n");
-        sb.append("Künstler: ").append(kuenstler).append("\n");;
+        sb.append("Künstler: ").append(kuenstler).append("\n");
         sb.append("Gesamtdauer: ").append(gesamtdauer).append("\n");
         sb.append("Altersfreigabe: ").append(altersfreigabe).append("\n");
         sb.append("Ausgeliehen: ").append(ausgeliehen).append("\n");
