@@ -6,7 +6,7 @@ package Bibliothek;
  * @since 2025-10-19
  * <p>Umgebung: IntelliJ IDEA, JDK 25, Windows 10</p>
  */
-public abstract class Medium {
+public abstract class Medium implements Comparable<Medium>{
     /** Titel des Mediums. */
     protected String Titel;
 
@@ -35,4 +35,22 @@ public abstract class Medium {
         return calculateRepresentation();
     }
 
+    /** to be updated */
+    @Override
+    public int compareTo(Medium o) {
+        if (o == null) throw new NullPointerException("o null");
+        int r = this.Titel.compareToIgnoreCase(o.Titel);
+        if (r != 0) {
+            return r;
+        } else {
+            int r2 = this.Titel.compareTo(o.Titel);
+            if (r2 < 0) {
+                return -1;
+            } else if (r2 > 0) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+    }
 }
