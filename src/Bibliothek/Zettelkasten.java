@@ -9,8 +9,27 @@ public class Zettelkasten implements Iterable<Medium> {
 
     public void addMedium(Medium m) {
         if (m == null) throw new IllegalArgumentException("Medium null");
-        String t = m.getTitel();
-        if (t == null || t.isBlank()) throw new IllegalArgumentException("Titel leer");
+        if (m.getTitel() == null || m.getTitel().trim().isEmpty()) throw new IllegalArgumentException("Titel leer");
+
+        if (m instanceof Buch b) {
+            if (b.getVerfasser() == null || b.getVerfasser().trim().isEmpty()) throw new IllegalArgumentException("Verfasser leer");
+            if (b.getVerlag() == null || b.getVerlag().trim().isEmpty()) throw new IllegalArgumentException("Verlag leer");
+            if (b.getIsbn() == null || b.getIsbn().trim().isEmpty()) throw new IllegalArgumentException("ISBN leer");
+            if (b.getErscheinungsjahr() <= 0) throw new IllegalArgumentException("Jahr ungültig: " + b.getErscheinungsjahr());
+        } else if (m instanceof CD c) {
+            if (c.getKuenstler() == null || c.getKuenstler().trim().isEmpty()) throw new IllegalArgumentException("Kuenstler leer");
+            if (c.getLabel() == null || c.getLabel().trim().isEmpty()) throw new IllegalArgumentException("Label leer");
+        } else if (m instanceof Zeitschrift z) {
+            if (z.getIssn() == null || z.getIssn().trim().isEmpty()) throw new IllegalArgumentException("ISSN leer");
+            if (z.getVolume() <= 0) throw new IllegalArgumentException("Volume <= 0");
+            if (z.getNummer() <= 0) throw new IllegalArgumentException("Nummer <= 0");
+        } else if (m instanceof ElektronischesMedium e) {
+            if (e.getURL() == null || e.getURL().trim().isEmpty()) throw new IllegalArgumentException("URL leer");
+            if (!ElektronischesMedium.checkURL(e.getURL())) throw new IllegalArgumentException("URL ungültig: " + e.getURL());
+        } else {
+            throw new IllegalArgumentException("Unbekannter Medientyp");
+        }
+
         items.add(m);
     }
 
@@ -23,7 +42,7 @@ public class Zettelkasten implements Iterable<Medium> {
         return null;
     }
 
-    public boolean removeMedium(String titel) {
+    public boolean dropMedium(String titel) {
         if (titel == null) return false;
         for (int i = 0; i < items.size(); i++) {
             String t = items.get(i).getTitel();
