@@ -1,10 +1,11 @@
 package Bibliothek;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
-public class Zettelkasten implements Iterable<Medium> {
+public class Zettelkasten implements Iterable<Medium>, Serializable {
 
     private final ArrayList<Medium> items = new ArrayList<>();
 

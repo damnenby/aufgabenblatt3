@@ -1,12 +1,13 @@
-package Bibliothek;
 
+package Bibliothek;
+import java.io.Serializable;
 /**
  * Basisklasse mit Titel.
  * @author Valentyn Zhernovoi
  * @since 2025-10-19
  * <p>Umgebung: IntelliJ IDEA, JDK 25, Windows 10</p>
  */
-public abstract class Medium implements Comparable<Medium>{
+public abstract class Medium implements Comparable<Medium>, Serializable {
     /** Titel des Mediums. */
     protected String Titel;
 

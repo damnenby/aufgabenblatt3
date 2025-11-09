@@ -28,6 +28,37 @@ public class Bibliothek {
         for (Medium medium : zettelkasten) {
             System.out.println(medium.calculateRepresentation());
         }
+
+
+        Persistency bin = new BinaryPersistency();
+        Persistency txt = new HumanReadablePersistency();
+
+        String binFile = "zk.bin";
+        String txtFile = "zk.txt";
+
+        try {
+            bin.save(zettelkasten, binFile);
+
+            Zettelkasten geladen = bin.load(binFile);
+
+            System.out.println("------ ORIGINAL ------");
+            for (Medium m : zettelkasten) {
+                System.out.println(m.getTitel());
+            }
+
+            System.out.println("------ GELADEN ------");
+            for (Medium m : geladen) {
+                System.out.println(m.getTitel());
+            }
+
+
+            txt.save(zettelkasten, txtFile);
+
+            System.out.println("Gespeichert: " + binFile);
+            System.out.println("Gespeichert: " + txtFile);
+        } catch (Exception e) {
+            System.out.println("Fehler: " + e);
+        }
     }
 
     /**
