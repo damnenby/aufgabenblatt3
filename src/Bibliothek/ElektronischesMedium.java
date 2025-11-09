@@ -4,7 +4,7 @@ import java.net.URL;
 
 /**
  * Elektronisches Medium mit URL.
- * @author Valentyn Zhernovoiя
+ * @author Valentyn Zhernovoi
  * @since 2025-10-19
  * <p>Umgebung: IntelliJ IDEA, JDK 25, Windows 10</p>
  */

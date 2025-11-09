@@ -2,6 +2,13 @@ package Bibliothek;
 
 import java.io.*;
 
+/**
+ * Speichert und lädt {@link Zettelkasten} binär (Java-Serialisierung).
+ * Implementiert {@link Persistency}.
+ * @author Valentyn Zhernovoi
+ * @since 2025-11-09
+ * <p>Umgebung: IntelliJ IDEA, JDK 25, Windows 10</p>
+ */
 public class BinaryPersistency implements Persistency {
         @Override
         public void save(Zettelkasten zk, String dateiname) throws IOException {

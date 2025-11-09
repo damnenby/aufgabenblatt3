@@ -5,11 +5,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-
+/**
+ * Zettelkasten verwaltet {@link Medium}-Objekte in einer Liste; add, find (Sortierung), drop (ein/typ/all), globales sort; Iterator liefert Kopie.
+ * @author Valentyn Zhernovoi
+ * @since 2025-11-09
+ * <p>Umgebung: IntelliJ IDEA, JDK 25, Windows 10</p>
+ */
 public class Zettelkasten implements Iterable<Medium>, Serializable {
 
+    /** to be updated */
     private final ArrayList<Medium> items = new ArrayList<>();
 
+    /** to be updated */
     public void addMedium(Medium m) {
         if (m == null) throw new IllegalArgumentException("Medium null");
         if (m.getTitel() == null || m.getTitel().trim().isEmpty()) throw new IllegalArgumentException("Titel leer");
@@ -36,6 +43,7 @@ public class Zettelkasten implements Iterable<Medium>, Serializable {
         items.add(m);
     }
 
+    /** to be updated */
     public List<Medium> findMedium(String titel, String order) {
         ArrayList<Medium> res = new ArrayList<>();
         if (titel == null) return res;
@@ -47,6 +55,7 @@ public class Zettelkasten implements Iterable<Medium>, Serializable {
         return res;
     }
 
+    /** to be updated */
     public int dropMedium(String titel) {
         if (titel == null) return 0;
 
@@ -71,6 +80,7 @@ public class Zettelkasten implements Iterable<Medium>, Serializable {
         return 0;
     }
 
+    /** to be updated */
     // "buch", "cd", "elmed, "zeitschrift", "all"
     public int dropMedium(String titel, String mode) {
         if (titel == null || mode == null) return 0;
@@ -118,6 +128,7 @@ public class Zettelkasten implements Iterable<Medium>, Serializable {
         return 0;
     }
 
+    /** to be updated */
     public void sort(String order) {
         if (order == null) throw new IllegalArgumentException("order null");
         String o = order.trim().toLowerCase();
@@ -132,6 +143,7 @@ public class Zettelkasten implements Iterable<Medium>, Serializable {
         }
     }
 
+    /** to be updated */
     @Override
     public Iterator<Medium> iterator() {
         ArrayList<Medium> itemsCopy = new ArrayList<Medium>(items);

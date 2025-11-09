@@ -4,7 +4,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
-
+/**
+ * Schreibt {@link Zettelkasten} als menschenlesbaren Text (UTF-8); {@code load} nicht implementiert.
+ * Implementiert {@link Persistency}.
+ * @author Valentyn Zhernovoi
+ * @since 2025-1109
+ * <p>Umgebung: IntelliJ IDEA, JDK 25, Windows 10</p>
+ */
 public class HumanReadablePersistency implements Persistency {
     @Override
     public void save(Zettelkasten zk, String dateiname) throws IOException {
