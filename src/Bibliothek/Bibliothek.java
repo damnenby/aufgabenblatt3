@@ -59,6 +59,41 @@ public class Bibliothek {
         } catch (Exception e) {
             System.out.println("Fehler: " + e);
         }
+
+        System.out.println("----- A7 TEST -----");
+        zettelkasten.addMedium(new Buch("SAME", "-", "Pub", 2001, "3-598-21508-8"));
+        zettelkasten.addMedium(new CD("SAME", "Artist", "Lbl"));
+        zettelkasten.addMedium(new Zeitschrift("SAME", "1234-5678", 1, 1));
+
+        System.out.println("----- findMedium asc -----");
+        for (Medium m : zettelkasten.findMedium("SAME", "asc")) {
+            System.out.println(m.getClass().getSimpleName() + " | " + m.getTitel());
+        }
+
+        System.out.println("----- dropMedium(String) -----");
+        try {
+            zettelkasten.dropMedium("SAME");
+            System.out.println("FAIL: no exception");
+        } catch (IllegalStateException ex) {
+            System.out.println("OK: " + ex.getMessage());
+        }
+
+        System.out.println("----- dropMedium by type cd -----");
+        int r1 = zettelkasten.dropMedium("SAME", "cd");
+        System.out.println("removed: " + r1);
+
+        System.out.println("----- dropMedium by type buch -----");
+        zettelkasten.dropMedium("SAME", "buch");
+
+        System.out.println("----- dropMedium(String) now single -----");
+        int r2 = zettelkasten.dropMedium("SAME");
+        System.out.println("removed single: " + r2);
+
+        System.out.println("-- remaining items --");
+        for (Medium m : zettelkasten) {
+            System.out.println(m.getTitel());
+        }
+
     }
 
     /**

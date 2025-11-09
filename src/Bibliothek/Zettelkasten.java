@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
 public class Zettelkasten implements Iterable<Medium>, Serializable {
 
@@ -35,25 +36,86 @@ public class Zettelkasten implements Iterable<Medium>, Serializable {
         items.add(m);
     }
 
-    public Medium findMedium(String titel) {
-        if (titel == null) return null;
+    public List<Medium> findMedium(String titel, String order) {
+        ArrayList<Medium> res = new ArrayList<>();
+        if (titel == null) return res;
+        sort(order);
         for (Medium m : items) {
             String t = m.getTitel();
-            if (t != null && t.equalsIgnoreCase(titel)) return m;
+            if (t != null && t.equalsIgnoreCase(titel)) res.add(m);
         }
-        return null;
+        return res;
     }
 
-    public boolean dropMedium(String titel) {
-        if (titel == null) return false;
+    public int dropMedium(String titel) {
+        if (titel == null) return 0;
+
+        int count = 0;
+        for (Medium m : items) { // подсчёт
+            String t = m.getTitel();
+            if (t != null && t.equalsIgnoreCase(titel)) {
+                count++;
+                if (count > 1) break;
+            }
+        }
+        if (count == 0) return 0;
+        if (count > 1) throw new IllegalStateException("duplicateEntry");
+
         for (int i = 0; i < items.size(); i++) {
             String t = items.get(i).getTitel();
             if (t != null && t.equalsIgnoreCase(titel)) {
                 items.remove(i);
-                return true;
+                return 1;
             }
         }
-        return false;
+        return 0;
+    }
+
+    // "buch", "cd", "elmed, "zeitschrift", "all"
+    public int dropMedium(String titel, String mode) {
+        if (titel == null || mode == null) return 0;
+        String m = mode.toLowerCase();
+
+        if ("all".equals(m)) {
+            ArrayList<Medium> keep = new ArrayList<>();
+            for (Medium x : items) {
+                String t = x.getTitel();
+                if (t == null || !t.equalsIgnoreCase(titel)) keep.add(x);
+            }
+            int removed = items.size() - keep.size();
+            items.clear();
+            items.addAll(keep);
+            return removed;
+        }
+
+        for (int i = 0; i < items.size(); i++) {
+            Medium x = items.get(i);
+            String t = x.getTitel();
+            if (t == null || !t.equalsIgnoreCase(titel)) continue;
+
+            boolean ok;
+            switch (m) {
+                case "buch":
+                    ok = x instanceof Buch;
+                    break;
+                case "cd":
+                    ok = x instanceof CD;
+                    break;
+                case "elmed":
+                    ok = x instanceof ElektronischesMedium;
+                    break;
+                case "zeitschrift":
+                    ok = x instanceof Zeitschrift;
+                    break;
+                default:
+                    ok = false;
+            }
+            if (ok) {
+                items.remove(i);
+                return 1;
+            }
+        }
+        return 0;
     }
 
     public void sort(String order) {
