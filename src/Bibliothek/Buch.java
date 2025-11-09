@@ -29,6 +29,17 @@ public class Buch extends Medium{
     /** to be updated */
     private boolean ausgeliehen;
 
+    /** to be updated */
+    public Buch() {}
+
+    /** to be updated */
+    public Buch(String titel, String verfasser, String verlag, int jahr, String isbn) {
+        setTitel(titel);
+        setVerfasser(verfasser);
+        setVerlag(verlag);
+        setErscheinungsjahr(jahr);
+        setIsbn(isbn);
+    }
 
     /** Gibt das Erscheinngsjahr zurück.
      * @return Erscheinngsjahr */

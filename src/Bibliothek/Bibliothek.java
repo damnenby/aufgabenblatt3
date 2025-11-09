@@ -17,41 +17,18 @@ public class Bibliothek {
      */
     public static void main(String[] args) {
 
-        ArrayList<Medium> list = new ArrayList<>();
+        Zettelkasten zettelkasten = new Zettelkasten();
 
-        Buch b = new Buch();
-        b.setTitel("Duden 01. Die deutsche Rechtschreibung");
-        b.setErscheinungsjahr(2004);
-        b.setVerlag("Bibliographisches Institut, Mannheim");
-        b.setIsbn("3-411-04013-0");
-        b.setVerfasser("-");
+        zettelkasten.addMedium(new CD("Live At Wembley", "Queen", "Parlophone (EMI)"));
+        zettelkasten.addMedium(new Buch("Duden 01. Die deutsche Rechtschreibung", "-", "Bibliographisches Institut, Mannheim", 2004, "3-411-04013-0"));
+        zettelkasten.addMedium(new Zeitschrift("Der Spiegel", "0038-7452", 54, 6));
+        zettelkasten.addMedium(new ElektronischesMedium("Hochschule Stralsund", "http://www.hochschule-stralsund.de"));
 
-        CD cd = new CD();
-        cd.setTitel("1");
-        cd.setLabel("Apple (Bea (EMI))");
-        cd.setKuenstler("The Beatles");
+        // zettelkasten.sort();
 
-        Zeitschrift z = new Zeitschrift();
-        z.setTitel("Der Spiegel");
-        z.setIssn("ISSN 0038-7452");
-        z.setVolume(54);
-        z.setNummer(6);
-
-        ElektronischesMedium em = new ElektronischesMedium();
-        em.setTitel("Hochschule Stralsund");
-        em.setURL("http://www.hochschule-stralsund.de");
-
-        list.add(b);
-        list.add(cd);
-        list.add(z);
-        list.add(em);
-
-        for (Medium m : list) {
-            System.out.println(m);
-            System.out.println();
+        for (Medium medium : zettelkasten) {
+            System.out.println(medium.calculateRepresentation());
         }
-
-
     }
 
     /**

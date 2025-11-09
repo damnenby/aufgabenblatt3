@@ -24,6 +24,17 @@ public class Zeitschrift extends Medium{
     private boolean ausgeliehen;
 
     /** to be updated */
+    public Zeitschrift() {}
+
+    /** to be updated */
+    public Zeitschrift(String titel, String issn, int volume, int nummer) {
+        setTitel(titel);
+        setIssn(issn);
+        setVolume(volume);
+        setNummer(nummer);
+    }
+
+    /** to be updated */
     public int getAuflage() {
         return this.auflage;
     }

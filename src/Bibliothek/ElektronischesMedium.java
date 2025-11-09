@@ -21,6 +21,15 @@ public class ElektronischesMedium extends Medium{
     /** to be updated */
     private boolean ausgeliehen;
 
+    /** to be updated */
+    public ElektronischesMedium() {}
+
+    /** to be updated */
+    public ElektronischesMedium(String titel, String url) {
+        setTitel(titel);
+        setURL(url);
+    }
+
     /** Gibt die URL zurück.
      * @return URL */
     public String getURL() {

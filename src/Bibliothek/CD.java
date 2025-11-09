@@ -29,6 +29,15 @@ public class CD extends Medium{
         return this.kuenstler;
     }
 
+    public CD() {}
+
+    public CD (String titel, String kuenstler, String label) {
+        setTitel(titel);
+        setKuenstler(kuenstler);
+        setLabel(label);
+    }
+
+
     /** Setzt den Küsntler.
      * @param kuenstler Künstler */
     public void setKuenstler(String kuenstler) {
