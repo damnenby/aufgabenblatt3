@@ -1,6 +1,5 @@
 package Bibliothek;
 
-import java.util.ArrayList;
 
 /**
  * Erstellt verschiedene {@link Medium}-Objekte (Buch, CD, Zeitschrift, ElektronischesMedium),
@@ -24,7 +23,7 @@ public class Bibliothek {
         zettelkasten.addMedium(new Zeitschrift("Der Spiegel", "0038-7452", 54, 6));
         zettelkasten.addMedium(new ElektronischesMedium("Hochschule Stralsund", "http://www.hochschule-stralsund.de"));
 
-        // zettelkasten.sort();
+        zettelkasten.sort("desc");
 
         for (Medium medium : zettelkasten) {
             System.out.println(medium.calculateRepresentation());

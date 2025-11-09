@@ -1,6 +1,7 @@
 package Bibliothek;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class Zettelkasten implements Iterable<Medium> {
@@ -52,6 +53,20 @@ public class Zettelkasten implements Iterable<Medium> {
             }
         }
         return false;
+    }
+
+    public void sort(String order) {
+        if (order == null) throw new IllegalArgumentException("order null");
+        String o = order.trim().toLowerCase();
+
+        if (o.equals("asc")) {
+            Collections.sort(items);
+        } else if (o.equals("desc")) {
+            Collections.sort(items);
+            Collections.reverse(items);
+        } else {
+            throw new IllegalArgumentException("order ungültig, use asc or desc: " + order);
+        }
     }
 
     @Override
